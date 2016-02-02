@@ -184,34 +184,22 @@ public class SkipListTest extends student.TestCase {
         con3.remove("E");
         con3.remove("E"); // rmeoved all E's
         assertEquals(0, list.size());
-
-    }
-
-    /**
-     * removing with region
-     */
-    public void tesetRemoveByRegion() {
-        list = con3.getList();
         assertNull(list.remove(new RectangleValue(1, 2, 3, 4)));
         assertNull(list.remove(new RectangleValue(-1, -1, -2, -2)));
+        con3.insert("B", 0, 0, 1024, 1024);
+        con3.insert("B", 0, 0, 1024, 1024);
+        con3.insert("B", 0, 0, 1024, 1024);
 
         RectangleValue rec = new RectangleValue(0, 0, 1024, 1024);
-        RectangleValue rec2 = new RectangleValue(1, 1, 1, 1);
         con3.dump();
         assertNotNull(list.remove(rec));
-        list.remove(rec2);
-        list.remove(rec2);
-        assertEquals(6, list.size());
-        assertEquals(list.remove(rec2).value().getWidth(), 1);
-        assertEquals(5, list.size());
+        assertNull(list.remove(new RectangleValue(1, 2, 3, 4)));
+        assertEquals(list.remove(rec).value().getWidth(), 1024);
+
+        assertEquals(1, list.size());
         list.dump();
-        assertEquals(1, list.remove(rec2).value().getPosY());
-        list.remove(new RectangleValue(0, 0, 1, 1));
-        assertEquals(3, list.size());
-        list.remove(new RectangleValue(0, 1023, 1, 1));
-        list.remove(new RectangleValue(1023, 0, 1, 1));
-        list.remove(new RectangleValue(1023, 1023, 1, 1));
-        assertEquals(0, list.size());
+        assertEquals(0, list.remove(rec).value().getPosY());
+
         list.dump();
 
     }
