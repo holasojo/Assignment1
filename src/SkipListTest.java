@@ -202,12 +202,10 @@ public class SkipListTest extends student.TestCase {
         list.remove(rec2);
         list.remove(rec2);
         assertEquals(6, list.size());
-        
         assertEquals(list.remove(rec).value().getWidth(), 1024);
-
-        assertEquals(1, list.size());
+        assertEquals(5, list.size());
         list.dump();
-        assertEquals(0, list.remove(rec).value().getPosY());
+        //assertEquals(0, list.remove(rec).value().getPosY());
 
         list.dump();
     }
