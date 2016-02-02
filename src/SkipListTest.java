@@ -208,6 +208,19 @@ public class SkipListTest extends student.TestCase {
         assertEquals(0, list.remove(rec).value().getPosY());
 
         list.dump();
+        
+        /**
+         * con3.insert("A", 0, 0, 1, 1);
+        con3.insert("B", 0, 0, 1024, 1024);
+        con3.insert("C", 1, 1, 1, 1);
+        con3.insert("E", 1023, 1023, 1, 1);
+        con3.insert("E", 0, 1023, 1, 1);
+        con3.insert("E", 1023, 0, 1, 1);
+        con3.insert("C", 1, 1, 1, 1);
+        con3.insert("C", 1, 1, 1, 1);
+        con3.insert("C", 1, 1, 1, 1);
+         */
+        
     }
 
     /**
