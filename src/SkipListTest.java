@@ -185,7 +185,7 @@ public class SkipListTest extends student.TestCase {
         con3.remove("E"); // rmeoved all E's
         assertEquals(0, list.size());
         assertNull(list.remove(new RectangleValue(1, 2, 3, 4)));
-        
+        assertNull(list.remove(new RectangleValue(-1,-1,-2,-2)));
         con3.insert("B", 0, 0, 1024, 1024);
         con3.insert("B", 0, 0, 1024, 1024);
         con3.insert("B", 0, 0, 1024, 1024);
