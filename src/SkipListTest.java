@@ -184,7 +184,7 @@ public class SkipListTest extends student.TestCase {
         con3.remove("E");
         con3.remove("E"); // rmeoved all E's
         assertEquals(0, list.size());
-
+        assertNull( list.remove(1,2,3,4));
         con3.insert("B", 0, 0, 1024, 1024);
         con3.insert("B", 0, 0, 1024, 1024);
         con3.insert("B", 0, 0, 1024, 1024);
@@ -198,6 +198,7 @@ public class SkipListTest extends student.TestCase {
         assertEquals(1, list.size());
         list.dump();
         assertEquals(0, list.remove(rec).value().getPosY());
+        
         list.dump();
 
     }
