@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Random;
 
 /** Source code example for "A Practical Introduction to Data
