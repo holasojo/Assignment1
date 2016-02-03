@@ -144,14 +144,14 @@ public class Container {
      */
     public boolean regionSearch(int x, int y, int w, int h) {
         if (w > 0) {
-                list.regionsearch(new RectangleValue(x, y, w, h));
-                return true;
+            list.regionsearch(new RectangleValue(x, y, w, h));
+            return true;
 
         }
         else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " + 
-                    y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + 
+                    ", " + y + ", " + w + ", " + h + ")");
             return false;
         }
 
