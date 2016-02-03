@@ -37,7 +37,8 @@ public class Container {
     public void insert(String name, int x, int y, int w, int h) {
         if (fits(x, y, w, h)) {
             RectangleValue rec = new RectangleValue(x, y, w, h);
-            KVPair<String, RectangleValue> kv = new KVPair<String, RectangleValue>(name, rec);
+            KVPair<String, RectangleValue> kv = new KVPair<String, 
+                    RectangleValue>(name, rec);
             // insert kv into the list
             list.insert(kv);
             System.out.println("Rectangle inserted: (" + name + ", " + x +
