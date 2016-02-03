@@ -20,8 +20,7 @@ public class Container {
     }
 
     /**
-     * Insert method. Creates RectangleValue and KVPair. 
-     * Calls insert() method
+     * Insert method. Creates RectangleValue and KVPair. Calls insert() method
      * in SkipList class.
      * 
      * @param name
@@ -38,16 +37,15 @@ public class Container {
     public void insert(String name, int x, int y, int w, int h) {
         if (fits(x, y, w, h)) {
             RectangleValue rec = new RectangleValue(x, y, w, h);
-            KVPair<String, RectangleValue> kv = new KVPair<String,
-                    RectangleValue>(name, rec);
+            KVPair<String, RectangleValue> kv = new KVPair<String, RectangleValue>(name, rec);
             // insert kv into the list
             list.insert(kv);
-            System.out.println("Rectangle inserted: (" + name + ", " 
-            + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle inserted: (" + name + ", " + x +
+                    ", " + y + ", " + w + ", " + h + ")");
         }
         else {
-            System.out.println("Rectangle rejected: (" + name + ", " 
-        + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + name + ", " + x + 
+                    ", " + y + ", " + w + ", " + h + ")");
         }
     }
 
@@ -79,16 +77,16 @@ public class Container {
      */
     public void remove(String name) {
 
-        KVPair<String, RectangleValue> toRemove = 
-                new KVPair<String, RectangleValue>(name,
+        KVPair<String, RectangleValue> toRemove 
+            = new KVPair<String, RectangleValue>(name, 
                 new RectangleValue(1, 1, 1, 1));
 
         KVPair<String, RectangleValue> removed = list.remove(toRemove);
 
         if (removed != null) {
 
-            System.out.println("Rectangle removed: " + "(" +
-            removed.toString() + ")");
+            System.out.println("Rectangle removed: " + "(" + 
+                    removed.toString() + ")");
         }
         else {
 
@@ -114,8 +112,8 @@ public class Container {
             RectangleValue rec = new RectangleValue(x, y, w, h);
             KVPair<String, RectangleValue> removed = list.remove(rec);
             if (removed != null) {
-                System.out.println("Rectangle removed: " + "(" + 
-            removed.toString() + ")");
+                System.out.println("Rectangle removed: " + "(" 
+                        + removed.toString() + ")");
             }
             else {
 
@@ -124,7 +122,7 @@ public class Container {
         }
         else {
             System.out.println("Rectangle rejected: (" + x + ", " 
-        + y + ", " + w + ", " + h + ")");
+                    + y + ", " + w + ", " + h + ")");
         }
 
     }
@@ -153,8 +151,8 @@ public class Container {
         }
         else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " +
-            y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + ", " + 
+                    y + ", " + w + ", " + h + ")");
             return false;
         }
 
