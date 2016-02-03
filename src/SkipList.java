@@ -183,9 +183,9 @@ class SkipList<K extends Comparable<K>, E> {
             x = x.forward[0];
         }
 
-        //x = x.forward[0];
+        x = x.forward[0];
 
-        if (x.forward[0] != null && x.data.value().equals(v)) {
+        if (x != null && x.data.value().equals(v)) {
 
             SkipList<K, E>.SkipNode<KVPair<K, E>> deletedNode = x;
             Comparable<K> k = x.data.key();
