@@ -148,14 +148,15 @@ public class Container {
                 list.regionsearch(new RectangleValue(x, y, w, h));
                 return true;
             }
-            return false;
-        }
-        else {
+            else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " + 
-                    y + ", " + w + ", " + h + ")");
-            return false;
+                System.out.println("Rectangle rejected: (" + x + ", " + 
+                        y + ", " + w + ", " + h + ")");
+                return false;
+            }
         }
+        return false;
+        
 
     }
 
