@@ -144,11 +144,9 @@ public class Container {
      */
     public boolean regionSearch(int x, int y, int w, int h) {
         if (w > 0) {
-            if (h > 0) {
                 list.regionsearch(new RectangleValue(x, y, w, h));
                 return true;
-            }
-            return false;
+
         }
         else {
 
