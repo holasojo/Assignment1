@@ -73,7 +73,7 @@ public class SkipListTest extends student.TestCase {
         // w > 0 && h > 0
         assertTrue(con3.regionSearch(1, 1, 2, 2));
         // w <= 0 && h <= 0
-        assertFalse(con3.regionSearch(1, 1, -1, -1));
+        assertFalse(con3.regionSearch(1, 1, -1, -20));
         assertFalse(con3.regionSearch(1, 1, 0, 0));
         // just w<=0
         assertFalse(con3.regionSearch(1, 1, 0, 1));
