@@ -177,40 +177,47 @@ class SkipList<K extends Comparable<K>, E> {
     @SuppressWarnings("unchecked")
     public KVPair<K, E> remove(E v) {
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head; // Start at header node
-
+        SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
+                .newInstance(SkipList.SkipNode.class, level + 1);
+        
         while ((x.forward[0] != null)
-                && !(v.equals((x.forward[0].data.value())))) {
+                && !(v.equals((x.data.value())))) {
+            for(int i = x.forward.length - 1; i >=0; i--)
+            {
+                if(v.equals(x.forward[i].data.value()))
+                    update[i] = x.forward[i];
+            }
             x = x.forward[0];
         }
 
-        x = x.forward[0];
+        
 
-        if (x != null && x.data.value().equals(v)) {
-
-            SkipList<K, E>.SkipNode<KVPair<K, E>> deletedNode = x;
-            Comparable<K> k = x.data.key();
-            x = head;
-
-            SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
-                    .newInstance(SkipList.SkipNode.class, level + 1);
-
-            for (int i = level; i >= 0; i--) { // Find insert position
-                while ((x.forward[i] != null)
-                        && (k.compareTo(((KVPair<K, E>) (x.forward[i])
-                                .getData()).key()) > 0))
-                    x = x.forward[i];
-                update[i] = x; // Track end at level i
-            }
-
-            for (int i = update.length - 1; i >= 0; i--) {
-                if (update[i].forward[i] == null
-                        || update[i].forward[i].data.key() != k) {
-                    continue;
-                }
-                while (!update[i].forward[i].data.value().equals(v)) {
-                    update[i] = update[i].forward[i];
-                }
-            }
+         if (x != null && x.data.value().equals(v)) {
+//
+             SkipList<K, E>.SkipNode<KVPair<K, E>> deletedNode = x;
+//            Comparable<K> k = x.data.key();
+//            x = head;
+//
+//            SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
+//                    .newInstance(SkipList.SkipNode.class, level + 1);
+//
+//            for (int i = level; i >= 0; i--) { // Find insert position
+//                while ((x.forward[i] != null)
+//                        && (k.compareTo(((KVPair<K, E>) (x.forward[i])
+//                                .getData()).key()) > 0))
+//                    x = x.forward[i];
+//                update[i] = x; // Track end at level i
+//            }
+//
+//            for (int i = update.length - 1; i >= 0; i--) {
+//                if (update[i].forward[i] == null
+//                        || update[i].forward[i].data.key() != k) {
+//                    continue;
+//                }
+//                while (!update[i].forward[i].data.value().equals(v)) {
+//                    update[i] = update[i].forward[i];
+//                }
+//            }
 
             for (int i = 0; i < deletedNode.forward.length; i++) {
                 update[i].forward[i] = deletedNode.forward[i];
