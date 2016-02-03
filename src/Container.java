@@ -143,7 +143,7 @@ public class Container {
      * @return false when the rectangle is not within the region.
      */
     public boolean regionSearch(int x, int y, int w, int h) {
-        if (w > 0) {
+        if (h > 0 && w > 0) {
             list.regionsearch(new RectangleValue(x, y, w, h));
             return true;
 
