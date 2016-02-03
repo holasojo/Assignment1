@@ -87,7 +87,8 @@ public class Container {
 
         if (removed != null) {
 
-            System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
+            System.out.println("Rectangle removed: " + "(" +
+            removed.toString() + ")");
         }
         else {
 
@@ -113,7 +114,8 @@ public class Container {
             RectangleValue rec = new RectangleValue(x, y, w, h);
             KVPair<String, RectangleValue> removed = list.remove(rec);
             if (removed != null) {
-                System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
+                System.out.println("Rectangle removed: " + "(" + 
+            removed.toString() + ")");
             }
             else {
 
