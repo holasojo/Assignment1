@@ -60,12 +60,10 @@ class SkipList<K extends Comparable<K>, E> {
         System.out.println("SkipList dump: ");
 
         while (temp.forward[0] != null) {
-            System.out.println("Node has depth " + temp.forward.length
-                    + ", Value (" + temp.getData() + ")");
+            System.out.println("Node has depth " + temp.forward.length + ", Value (" + temp.getData() + ")");
             temp = temp.forward[0];
         }
-        System.out.println("Node has depth " + temp.forward.length
-                + ", Value (" + temp.getData() + ")");
+        System.out.println("Node has depth " + temp.forward.length + ", Value (" + temp.getData() + ")");
         System.out.println("SkipList size is: " + size);
     }
 
@@ -105,14 +103,11 @@ class SkipList<K extends Comparable<K>, E> {
             adjustHead(newLevel);
 
         // Generic array allocation
-        SkipNode[] update = (SkipNode[]) Array.newInstance(
-                SkipList.SkipNode.class, level + 1);
+        SkipNode[] update = (SkipNode[]) Array.newInstance(SkipList.SkipNode.class, level + 1);
         SkipNode x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // Find insert position
-            while ((x.forward[i] != null)
-                    && (k.compareTo(((KVPair<K, E>) (x.forward[i])
-                            .getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Track end at level i
         }
@@ -138,21 +133,16 @@ class SkipList<K extends Comparable<K>, E> {
 
         @SuppressWarnings("unchecked")
         // Generic array allocation
-        SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array.newInstance(
-                SkipList.SkipNode.class, level + 1);
+        SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array.newInstance(SkipList.SkipNode.class, level + 1);
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // Find insert position
-            while ((x.forward[i] != null)
-                    && (k.compareTo(((KVPair<K, E>) (x.forward[i])
-                            .getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Track end at level i
         }
 
-        if (x.forward[0] != null
-                && (k.compareTo(((KVPair<K, E>) (x.forward[0]).getData())
-                        .key()) == 0)) {
+        if (x.forward[0] != null && (k.compareTo(((KVPair<K, E>) (x.forward[0]).getData()).key()) == 0)) {
 
             SkipList<K, E>.SkipNode<KVPair<K, E>> deleted = x.forward[0];
 
@@ -168,65 +158,62 @@ class SkipList<K extends Comparable<K>, E> {
     }
 
     /**
-     * remove by regions
+     * 168 remove by regions 169
      * 
-     * @param v
-     *            is the requested one to get removed.
-     * @return kvpair if got removed.
+     * 170
+     * 
+     * @param val
+     *            171 is the requested one to get removed. 172
+     * @return kvpair if got removed. 173
      */
+
     @SuppressWarnings("unchecked")
+
     public KVPair<K, E> remove(E val) {
+
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head; // Start at header node
+
         SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
+
                 .newInstance(SkipList.SkipNode.class, level + 1);
-        
+
+        for (int i = 0; i <= level; i++) {
+
+            update[i] = head;
+
+        }
+
         while ((x.forward[0] != null)
-                && !(val.equals((x.data.value())))) {
-            for(int i = x.forward.length - 1; i >=0; i--)
-            {
-                if(val.equals(x.forward[i].data.value()))
-                    update[i] = x.forward[i];
+
+                && !(val.equals((x.forward[0].data.value())))) {
+
+            for (int i = x.forward.length - 1; i >= 0; i--) {
+
+                update[i] = x.forward[i];
             }
+
             x = x.forward[0];
         }
 
-        
+        x = x.forward[0]; // go forward once more
 
-         if (x != null && x.data.value().equals(val)) {
-//
-             SkipList<K, E>.SkipNode<KVPair<K, E>> deletedNode = x;
-//            Comparable<K> k = x.data.key();
-//            x = head;
-//
-//            SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
-//                    .newInstance(SkipList.SkipNode.class, level + 1);
-//
-//            for (int i = level; i >= 0; i--) { // Find insert position
-//                while ((x.forward[i] != null)
-//                        && (k.compareTo(((KVPair<K, E>) (x.forward[i])
-//                                .getData()).key()) > 0))
-//                    x = x.forward[i];
-//                update[i] = x; // Track end at level i
-//            }
-//
-//            for (int i = update.length - 1; i >= 0; i--) {
-//                if (update[i].forward[i] == null
-//                        || update[i].forward[i].data.key() != k) {
-//                    continue;
-//                }
-//                while (!update[i].forward[i].data.value().equals(v)) {
-//                    update[i] = update[i].forward[i];
-//                }
-//            }
+        if (x != null) {
+
+            SkipList<K, E>.SkipNode<KVPair<K, E>> deletedNode = x;
 
             for (int i = 0; i < deletedNode.forward.length; i++) {
                 update[i].forward[i] = deletedNode.forward[i];
+
             }
 
             size--;
+
             return deletedNode.data;
+
         }
+
         return null;
+
     }
 
     /**
@@ -252,8 +239,7 @@ class SkipList<K extends Comparable<K>, E> {
             System.out.println("Rectangles found:");
             System.out.println(x.getData());
 
-            while (x.forward[0] != null
-                    && key.compareTo(x.forward[0].getData().key()) == 0) {
+            while (x.forward[0] != null && key.compareTo(x.forward[0].getData().key()) == 0) {
                 x = x.forward[0];
                 System.out.println(x.getData());
             }
@@ -276,8 +262,7 @@ class SkipList<K extends Comparable<K>, E> {
 
         int intersections = 0;
 
-        System.out.println("Rectangles intersecting region " + "("
-                + rec.toString() + ")" + ":");
+        System.out.println("Rectangles intersecting region " + "(" + rec.toString() + ")" + ":");
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head;
 
         RectangleValue val;
@@ -295,6 +280,7 @@ class SkipList<K extends Comparable<K>, E> {
 
     /**
      * Checks for rectangle intersections within the skiplist.
+     * 
      * @return number of intersections
      */
     public int intersections() {
@@ -319,8 +305,7 @@ class SkipList<K extends Comparable<K>, E> {
 
                 if (i != j) {
                     if (outerVal.intersect(innerVal)) {
-                        System.out.println("(" + outerNode.data.toString()
-                                + " | " + innerNode.data.toString() + ")");
+                        System.out.println("(" + outerNode.data.toString() + " | " + innerNode.data.toString() + ")");
                         num++;
                     }
                 }
