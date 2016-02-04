@@ -1,5 +1,6 @@
 /**
- * Communicate with SkipList and another data structure that will be added for project2.
+ * Communicate with SkipList and another data structure 
+ * that will be added for project2.
  * 
  * @author sohyun
  * @author sschumway
