@@ -60,10 +60,12 @@ class SkipList<K extends Comparable<K>, E> {
         System.out.println("SkipList dump: ");
 
         while (temp.forward[0] != null) {
-            System.out.println("Node has depth " + temp.forward.length + ", Value (" + temp.getData() + ")");
+            System.out.println("Node has depth " + temp.forward.length + 
+                    ", Value (" + temp.getData() + ")");
             temp = temp.forward[0];
         }
-        System.out.println("Node has depth " + temp.forward.length + ", Value (" + temp.getData() + ")");
+        System.out.println("Node has depth " + temp.forward.length + 
+                ", Value (" + temp.getData() + ")");
         System.out.println("SkipList size is: " + size);
     }
 
@@ -103,11 +105,13 @@ class SkipList<K extends Comparable<K>, E> {
             adjustHead(newLevel);
 
         // Generic array allocation
-        SkipNode[] update = (SkipNode[]) Array.newInstance(SkipList.SkipNode.class, level + 1);
+        SkipNode[] update = (SkipNode[]) 
+                Array.newInstance(SkipList.SkipNode.class, level + 1);
         SkipNode x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // Find insert position
-            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) 
+                    (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Track end at level i
         }
@@ -133,16 +137,19 @@ class SkipList<K extends Comparable<K>, E> {
 
         @SuppressWarnings("unchecked")
         // Generic array allocation
-        SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array.newInstance(SkipList.SkipNode.class, level + 1);
+        SkipNode<KVPair<K, E>>[] update = (SkipNode[]) 
+        Array.newInstance(SkipList.SkipNode.class, level + 1);
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // Find insert position
-            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) 
+                    (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Track end at level i
         }
 
-        if (x.forward[0] != null && (k.compareTo(((KVPair<K, E>) (x.forward[0]).getData()).key()) == 0)) {
+        if (x.forward[0] != null && (k.compareTo(((KVPair<K, E>) 
+                (x.forward[0]).getData()).key()) == 0)) {
 
             SkipList<K, E>.SkipNode<KVPair<K, E>> deleted = x.forward[0];
 
@@ -239,7 +246,8 @@ class SkipList<K extends Comparable<K>, E> {
             System.out.println("Rectangles found:");
             System.out.println(x.getData());
 
-            while (x.forward[0] != null && key.compareTo(x.forward[0].getData().key()) == 0) {
+            while (x.forward[0] != null && 
+                    key.compareTo(x.forward[0].getData().key()) == 0) {
                 x = x.forward[0];
                 System.out.println(x.getData());
             }
@@ -262,7 +270,8 @@ class SkipList<K extends Comparable<K>, E> {
 
         int intersections = 0;
 
-        System.out.println("Rectangles intersecting region " + "(" + rec.toString() + ")" + ":");
+        System.out.println("Rectangles intersecting region " 
+                + "(" + rec.toString() + ")" + ":");
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head;
 
         RectangleValue val;
@@ -305,7 +314,8 @@ class SkipList<K extends Comparable<K>, E> {
 
                 if (i != j) {
                     if (outerVal.intersect(innerVal)) {
-                        System.out.println("(" + outerNode.data.toString() + " | " + innerNode.data.toString() + ")");
+                        System.out.println("(" + outerNode.data.toString() 
+                            + " | " + innerNode.data.toString() + ")");
                         num++;
                     }
                 }
