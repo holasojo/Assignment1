@@ -1,7 +1,7 @@
 /**
  * This processes each line. Recognizes each command.
  * 
- * @author SOJO
+ * @author sohyun
  * @author sshumway
  * @version 01/29/2016
  *
@@ -25,7 +25,8 @@ public class CommandProcessor {
     }
 
     /**
-     * setUp class. basically copies the line.
+     * Set up before it actually gets processed.
+     * cline is the command that gets passed in from the CommandParser class.
      * 
      * @param cline is the line from text file.
      */
