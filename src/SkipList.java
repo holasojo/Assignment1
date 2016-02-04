@@ -14,9 +14,9 @@ import java.util.Random;
  * @author SOJO
  * @author sshumway
  * @version 01/25/2016
- * @param <K>
- * @param <E>
- * @param <E>
+ * @param <K> is the key, name of rectangle
+ * @param <E> is the value/region of rectangle
+ * 
  */
 class SkipList<K extends Comparable<K>, E> {
 
