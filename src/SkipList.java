@@ -7,11 +7,10 @@ import java.util.Random;
  Copyright 2008-2011 by Clifford A. Shaffer
  */
 
-/** Skiplist implementation for Dictionary ADT */
 /**
- * Checks the inputfile and pass it into CommandParser class to parse each line
+ * SkipList Implementation
  * 
- * @author SOJO
+ * @author sohyun
  * @author sshumway
  * @version 01/25/2016
  * @param <K> is the key, name of rectangle
