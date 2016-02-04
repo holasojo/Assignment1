@@ -4,7 +4,7 @@ import java.io.IOException;
 /**
  * Checks the inputfile and pass it into CommandParser class to parse each line
  * 
- * @author SOJO
+ * @author sohyun
  * @author sshumway
  * @version 02/01/2016
  */
