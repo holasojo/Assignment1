@@ -3,9 +3,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * It parses the input.txt
+ * It parses each line into the processor.
  * 
- * @author SOJO
+ * @author sohyun
  * @author sshumway
  * @version 01/31/2016
  *
