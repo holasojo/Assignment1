@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 /**
- * Test for CommandParser clas
- * @author SOJO
+ * Test for CommandParser class
+ * @author sohyun
  * @author sshumway
  * @version 02/1/2016
  *
