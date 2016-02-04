@@ -143,16 +143,17 @@ public class Container {
      * @return false when the rectangle is not within the region.
      */
     public boolean regionSearch(int x, int y, int w, int h) {
-        if (w > 0 && h > 0) {
-            list.regionsearch(new RectangleValue(x, y, w, h));
-            return true;
+        if (w <= 0 || h <= 0) {
+            System.out.println("Rectangle rejected: (" + x + 
+                    ", " + y + ", " + w + ", " + h + ")");
+            return false;
 
         }
         else {
 
-            System.out.println("Rectangle rejected: (" + x + 
-                    ", " + y + ", " + w + ", " + h + ")");
-            return false;
+            list.regionsearch(new RectangleValue(x, y, w, h));
+            return true;
+           
         }
 
     }
