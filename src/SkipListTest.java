@@ -69,7 +69,7 @@ public class SkipListTest extends student.TestCase {
     /**
      * test regionSearch
      */
-    public void regionSearchTest() {
+    public void testregionSearch() {
         // w > 0 && h > 0
         assertTrue(con3.regionSearch(1, 1, 2, 2));
         // w <= 0 && h <= 0
