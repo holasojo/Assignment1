@@ -2,7 +2,7 @@
  * This is Value for <Key, Value> RectangleValue stores position of X, Y, width
  * and height.
  * 
- * @author SOJO
+ * @author sohyun
  * @author sshumway
  * @version 01/30/2016
  *
