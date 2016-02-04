@@ -1,8 +1,7 @@
 /**
- * It's a container class. Communicate with SkipList and another data structure
- * that will be added for project2.
+ * Communicate with SkipList and another data structure that will be added for project2.
  * 
- * @author SOJO
+ * @author sohyun
  * @author sschumway
  * @version 01/29/2016
  *
