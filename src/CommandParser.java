@@ -38,7 +38,9 @@ public class CommandParser {
     }
 
     /**
-     * starts parsing. gets one line every time it loops.
+     * Starts parsing. 
+     * Get rid of spaces and tabs. Stores in the String array.
+     * Passing the array to CommandProcesor class every time it loops.
      */
     public void parse() {
 
