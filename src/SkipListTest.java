@@ -207,7 +207,7 @@ public class SkipListTest extends student.TestCase {
     /**
      * test regionsearch
      */
-    public void testRegionsearch() {
+    public void testRegionSearch2() {
         list = con.getList();
         RectangleValue region = new RectangleValue(15, 15, 100, 100);
         RectangleValue region2 = new RectangleValue(-10, -10, 200, 200);
