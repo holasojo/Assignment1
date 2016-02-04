@@ -25,21 +25,22 @@ public class CommandProcessor {
     }
 
     /**
-     * Set up before it actually gets processed.
-     * cline is the command that gets passed in from the CommandParser class.
+     * Set up before it actually gets processed. cline is the command that gets
+     * passed in from the CommandParser class.
      * 
-     * @param cline is the splited command/line from text file.
+     * @param cline
+     *            is the splited command/line from text file.
      */
     public void setUp(String[] cline) {
         this.line = cline;
     }
 
     /**
-     * Compare the first word of line with possible commands. and calls private
+     * Compare the first word of line with possible commands. Calls private
      * methods in order to proceed.
      */
     public void process() {
-        com = line[0];
+        com = line[0]; // command
 
         if (com.equals("insert")) {
             insertRectangle();
@@ -48,10 +49,14 @@ public class CommandProcessor {
             regionSearch();
         }
         else if (com.equals("remove")) {
+            // if there the length of array is 2, there are only command and the
+            // name of rectangle
             if (line.length == 2) {
                 removeByName();
             }
             else {
+                //length of array is not 2. Most likely going to be just 4.
+                //Meaning that it will be regions/coordinates.
                 removeByCoor();
             }
         }
