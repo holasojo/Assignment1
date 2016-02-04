@@ -1,8 +1,12 @@
 import student.TestCase;
 
 /**
- * @author ayaan
- * @version 2
+ * 
+ * Test class for Rectangle1
+ * 
+ * @author sohyun
+ * @author sshumway
+ * @version 2/4/2016
  */
 public class Rectangle1Test extends TestCase {
 
