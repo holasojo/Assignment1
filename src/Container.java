@@ -11,7 +11,7 @@ public class Container {
     private SkipList<String, RectangleValue> list;
 
     /**
-     * constructor. sets the list.
+     * constructor. Initializing the SkipList.
      */
     public Container() {
         list = new SkipList<String, RectangleValue>();
