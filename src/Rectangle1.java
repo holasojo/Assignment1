@@ -33,11 +33,12 @@ public class Rectangle1 {
 
         // checks if the length of argument is 1 and args[0] is available.
         if (args.length == 1 && args[0] != null) {
+            //continue to run. Passing arguments into the control class.
             Control cont = new Control(args);
             cont.setup();
         }
         else {
-
+            //A warning message if argument is not right.
             System.out.println("Check your arguments");
 
         }
