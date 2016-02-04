@@ -175,16 +175,16 @@ class SkipList<K extends Comparable<K>, E> {
      * @return kvpair if got removed.
      */
     @SuppressWarnings("unchecked")
-    public KVPair<K, E> remove(E v) {
+    public KVPair<K, E> remove(E val) {
         SkipList<K, E>.SkipNode<KVPair<K, E>> x = head; // Start at header node
         SkipNode<KVPair<K, E>>[] update = (SkipNode[]) Array
                 .newInstance(SkipList.SkipNode.class, level + 1);
         
         while ((x.forward[0] != null)
-                && !(v.equals((x.data.value())))) {
+                && !(val.equals((x.data.value())))) {
             for(int i = x.forward.length - 1; i >=0; i--)
             {
-                if(v.equals(x.forward[i].data.value()))
+                if(val.equals(x.forward[i].data.value()))
                     update[i] = x.forward[i];
             }
             x = x.forward[0];
