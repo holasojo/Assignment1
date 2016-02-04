@@ -28,7 +28,7 @@ public class CommandProcessor {
      * Set up before it actually gets processed.
      * cline is the command that gets passed in from the CommandParser class.
      * 
-     * @param cline is the line from text file.
+     * @param cline is the splited command/line from text file.
      */
     public void setUp(String[] cline) {
         this.line = cline;
