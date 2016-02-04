@@ -43,12 +43,15 @@ public class CommandParser {
      * Passing the array to CommandProcesor class every time it loops.
      */
     public void parse() {
-
+        //loops until at the end of the txt file
         while (inputfile.hasNextLine()) {
+            //split the line 
             String[] line = inputfile.nextLine().trim().split("\\s+");
             commandProcessor.setUp(line);
+            //process the command
             commandProcessor.process();
         }
+        //making sure to close the input file
         inputfile.close();
 
     }
