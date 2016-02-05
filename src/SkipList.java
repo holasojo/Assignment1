@@ -305,11 +305,15 @@ class SkipList<K extends Comparable<K>, E> {
         SkipNode x = head;
         RectangleValue val;
 
+        //traversing through the list
         for (int i = 0; i < size; i++) {
-
+            //node that we are comparing with
             x = x.forward[0];
 
+            //getting the value of x for comparison
             val = (RectangleValue) x.data.value();
+            
+            //if intersect, print out.
             if (val.intersect(rec)) {
 
                 intersections++;
