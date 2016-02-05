@@ -12,7 +12,7 @@ public class CommandProcessor {
     private Container c;
     private String com;
     private int[] regions;
- 
+
     /**
      * constructor. Initialize the container.
      */
@@ -30,7 +30,7 @@ public class CommandProcessor {
      */
     public void setUp(String[] cline) {
         this.line = cline;
-        
+
     }
 
     /**
@@ -39,7 +39,8 @@ public class CommandProcessor {
      */
     public void process() {
         com = line[0]; // command
-        String name = line[1];
+        String name = line[1]; // name of the rectangle. Only gets passed in for
+                               // insert, removeByName, and searchByName
         if (com.equals("insert")) {
             regions = convertValues(line);
             insertRectangle(name, regions);
@@ -56,8 +57,8 @@ public class CommandProcessor {
                 removeByName(name);
             }
             else {
-                //length of array is not 2. Most likely going to be just 4.
-                //Meaning that it will be regions/coordinates.
+                // length of array is not 2. Most likely going to be just 4.
+                // Meaning that it will be regions/coordinates.
                 regions = convertValues(line);
                 removeByCoor(regions);
             }
@@ -78,17 +79,17 @@ public class CommandProcessor {
      */
     private int[] convertValues(String[] str) {
         int[] arr = new int[4];
-        
+
         int i = 0;
         if (com.equals("insert")) {
             i++;
         }
-        
+
         arr[0] = Integer.parseInt(str[1 + i]);
         arr[1] = Integer.parseInt(str[2 + i]);
         arr[2] = Integer.parseInt(str[3 + i]);
         arr[3] = Integer.parseInt(str[4 + i]);
-        
+
         return arr;
 
     }
