@@ -82,7 +82,7 @@ class SkipList<K extends Comparable<K>, E> {
      * 
      * @return a randomized number for new level
      */
-    int randomLevel() {
+    private int randomLevel() {
         int lev;
         for (lev = 0; value.nextInt(2) == 0; lev++) {
         }
