@@ -1,6 +1,6 @@
 /**
- * Communicate with SkipList and another data structure 
- * that will be added for project2.
+ * Communicate with SkipList and another data structure that will be added for
+ * project2.
  * 
  * @author sohyun
  * @author sschumway
@@ -9,6 +9,7 @@
  */
 public class Container {
 
+    // skiplist
     private SkipList<String, RectangleValue> list;
 
     /**
@@ -35,17 +36,20 @@ public class Container {
      *            is height
      */
     public void insert(String name, int x, int y, int w, int h) {
+        // check if the rectangle fits under the requirement
         if (fits(x, y, w, h)) {
+            // create a rectangle
             RectangleValue rec = new RectangleValue(x, y, w, h);
-            KVPair<String, RectangleValue> kv = new KVPair<String, 
-                    RectangleValue>(name, rec);
+            // create KVPair with the rectangle object
+            KVPair<String, RectangleValue> kv 
+                = new KVPair<String, RectangleValue>(name, rec);
             // insert kv into the list
             list.insert(kv);
-            System.out.println("Rectangle inserted: (" + name + ", " + x +
-                    ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle inserted: (" + name + ", " + 
+                    x + ", " + y + ", " + w + ", " + h + ")");
         }
         else {
-            System.out.println("Rectangle rejected: (" + name + ", " + x + 
+            System.out.println("Rectangle rejected: (" + name + ", " + x +
                     ", " + y + ", " + w + ", " + h + ")");
         }
     }
@@ -65,8 +69,7 @@ public class Container {
      */
     public boolean fits(int x, int y, int w, int h) {
 
-        return (w > 0 && h > 0) && (x >= 0 && y >= 0) && 
-                ((x + w <= 1024) && (y + h <= 1024));
+        return (w > 0 && h > 0) && (x >= 0 && y >= 0) && ((x + w <= 1024) && (y + h <= 1024));
 
     }
 
@@ -78,16 +81,14 @@ public class Container {
      */
     public void remove(String name) {
 
-        KVPair<String, RectangleValue> toRemove 
-            = new KVPair<String, RectangleValue>(name, 
+        KVPair<String, RectangleValue> toRemove = new KVPair<String, RectangleValue>(name,
                 new RectangleValue(1, 1, 1, 1));
 
         KVPair<String, RectangleValue> removed = list.remove(toRemove);
 
         if (removed != null) {
 
-            System.out.println("Rectangle removed: " + "(" + 
-                    removed.toString() + ")");
+            System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
         }
         else {
 
@@ -113,8 +114,7 @@ public class Container {
             RectangleValue rec = new RectangleValue(x, y, w, h);
             KVPair<String, RectangleValue> removed = list.remove(rec);
             if (removed != null) {
-                System.out.println("Rectangle removed: " + "(" 
-                        + removed.toString() + ")");
+                System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
             }
             else {
 
@@ -122,8 +122,7 @@ public class Container {
             }
         }
         else {
-            System.out.println("Rectangle rejected: (" + x + ", " 
-                    + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
         }
 
     }
@@ -150,9 +149,7 @@ public class Container {
         }
         else {
 
-            
-            System.out.println("Rectangle rejected: (" + x + 
-                    ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
             return false;
         }
 
