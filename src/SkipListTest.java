@@ -55,7 +55,8 @@ public class SkipListTest extends student.TestCase {
         con2.insert("A", 0, 0, 1, 1);
         systemOut().clearHistory();
         con2.search("A");
-        assertFuzzyEquals("Rectangles found:\nA 0, 0, 1, 1\n", systemOut().getHistory());
+        assertFuzzyEquals("Rectangles found:\nA 0, 0, 1, 1\n", 
+                systemOut().getHistory());
         assertEquals(1, list.size());
         con2.insert("B", 0, 0, 1024, 1024);
         assertEquals(2, list.size());
@@ -73,14 +74,16 @@ public class SkipListTest extends student.TestCase {
         systemOut().clearHistory();
 
         con2.search("E");
-        assertFuzzyEquals("Rectangles found:\nE 1023, 0, 1, 1\nE 0, 1023, 1, 1\nE 1023, 1023, 1, 1\n", systemOut().getHistory());
+        assertFuzzyEquals("Rectangles found:\nE 1023, 0, 1, 1\nE 0, 1023, 1, "
+                + "1\nE 1023, 1023, 1, 1\n", systemOut().getHistory());
         assertEquals(6, list.size());
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
         systemOut().clearHistory();
         con2.search("C");
-        assertFuzzyEquals("Rectangles found:\nC 1, 1, 1, 1\nC 1, 1, 1, 1\nC " + "1, 1, 1, 1\nC 1, 1, 1, 1\n",
+        assertFuzzyEquals("Rectangles found:\nC 1, 1, 1, 1\nC 1, 1, 1, 1\nC " 
+                + "1, 1, 1, 1\nC 1, 1, 1, 1\n",
                 systemOut().getHistory());
 
     }
