@@ -45,12 +45,12 @@ public class Container {
                 = new KVPair<String, RectangleValue>(name, rec);
             // insert kv into the list
             list.insert(kv);
-            System.out.println("Rectangle inserted: (" + name + ", " + 
-                    x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle inserted: (" + 
+                    name + ", " + x + ", " + y + ", " + w + ", " + h + ")");
         }
         else {
-            System.out.println("Rectangle rejected: (" + name + ", " + x +
-                    ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + 
+                    name + ", " + x + ", " + y + ", " + w + ", " + h + ")");
         }
     }
 
@@ -58,9 +58,9 @@ public class Container {
      * checking bounds of the rectangle
      * 
      * @param x
-     *            is x-Position
+     *            is x-Position. Has to be greater than 0
      * @param y
-     *            is y-Position
+     *            is y-Position. Has to be greater than 0
      * @param w
      *            is width of the rectangle
      * @param h
@@ -69,7 +69,8 @@ public class Container {
      */
     public boolean fits(int x, int y, int w, int h) {
 
-        return (w > 0 && h > 0) && (x >= 0 && y >= 0) && ((x + w <= 1024) && (y + h <= 1024));
+        return (w > 0 && h > 0) && (x >= 0 && y >= 0) 
+                && ((x + w <= 1024) && (y + h <= 1024));
 
     }
 
@@ -81,14 +82,20 @@ public class Container {
      */
     public void remove(String name) {
 
-        KVPair<String, RectangleValue> toRemove = new KVPair<String, RectangleValue>(name,
+        // creating a KVPair to pass into the method
+        KVPair<String, RectangleValue> toRemove 
+            = new KVPair<String, RectangleValue>(name,
                 new RectangleValue(1, 1, 1, 1));
-
+        // the one actually got removed
         KVPair<String, RectangleValue> removed = list.remove(toRemove);
 
+        // if there was a rectangle and got removed,
+        // print out that it was removed
+        // if not, print out Rectangle not removed
         if (removed != null) {
 
-            System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
+            System.out.println("Rectangle removed: " + "(" + 
+                    removed.toString() + ")");
         }
         else {
 
@@ -110,19 +117,28 @@ public class Container {
      * 
      */
     public void remove(int x, int y, int w, int h) {
+        // check the values meet conditions
         if (fits(x, y, w, h)) {
+            // create a new rectangle value with passed in values
             RectangleValue rec = new RectangleValue(x, y, w, h);
+            // the one got removed
             KVPair<String, RectangleValue> removed = list.remove(rec);
             if (removed != null) {
-                System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
+                // rectangle was in the skip list and got removed
+                System.out.println("Rectangle removed: " + "(" 
+                        + removed.toString() + ")");
             }
             else {
-
+                // rectangle was not in the skiplist
                 System.out.println("Rectangle not removed: " + rec.toString());
             }
         }
+        // if the rectangle size and position not meet requirements, print out
+        // rectangle rejected
         else {
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+
+            System.out.println("Rectangle rejected: (" + x + ", " 
+                    + y + ", " + w + ", " + h + ")");
         }
 
     }
@@ -142,14 +158,17 @@ public class Container {
      * @return false when the rectangle is not within the region.
      */
     public boolean regionSearch(int x, int y, int w, int h) {
+        // checking width and height
         if (w > 0 && h > 0) {
+            // start region search
             list.regionsearch(new RectangleValue(x, y, w, h));
             return true;
 
         }
         else {
-
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+            // print out rejection when w <= 0 and h <= 0
+            System.out.println("Rectangle rejected: (" + x + ", " + 
+                    y + ", " + w + ", " + h + ")");
             return false;
         }
 
@@ -163,8 +182,7 @@ public class Container {
      * @return true if the rectangle is found.
      */
     public boolean search(String name) {
-        // KVPair<String, RectangleValue> pair = new KVPair<String,
-        // RectangleValue>(name, null);
+
         return list.search(name) != null;
 
     }
