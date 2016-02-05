@@ -50,39 +50,38 @@ public class SkipListTest extends student.TestCase {
         assertEquals(0, list.size());
         systemOut().clearHistory();
         con2.search("A");
-        assertFuzzyEquals("Rectangle not found: A\n", systemOut()
-                .getHistory());
-        
+        assertFuzzyEquals("Rectangle not found: A\n", systemOut().getHistory());
+
         con2.insert("A", 0, 0, 1, 1);
         systemOut().clearHistory();
         con2.search("A");
-        assertFuzzyEquals("Rectangles found:\nA 0, 0, 1, 1\n", systemOut()
-                .getHistory());
+        assertFuzzyEquals("Rectangles found:\nA 0, 0, 1, 1\n", systemOut().getHistory());
         assertEquals(1, list.size());
         con2.insert("B", 0, 0, 1024, 1024);
         assertEquals(2, list.size());
         con2.insert("C", 1, 1, 1, 1);
         assertEquals(3, list.size());
         systemOut().clearHistory();
+
         con2.search("Z");
-        assertFuzzyEquals("Rectangle not found: Z\n", systemOut()
-                .getHistory());
+        assertFuzzyEquals("Rectangle not found: Z\n", systemOut().getHistory());
         con2.insert("E", 1023, 1023, 1, 1);
         assertEquals(4, list.size());
         con2.insert("E", 0, 1023, 1, 1);
         assertEquals(5, list.size());
         con2.insert("E", 1023, 0, 1, 1);
+        systemOut().clearHistory();
+
+        con2.search("E");
+        assertFuzzyEquals("Rectangles found:\nE 1023, 1023, 1, 1\nE 0, 1023, 1, 1\nE 1023, 0, 1, 1", systemOut().getHistory());
         assertEquals(6, list.size());
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
         systemOut().clearHistory();
         con2.search("C");
-        assertFuzzyEquals("Rectangles found:\nC 1, 1, 1, 1\nC 1, 1, 1, 1\nC "
-                + "1, 1, 1, 1\nC 1, 1, 1, 1\n", systemOut()
-                .getHistory());
-
-        
+        assertFuzzyEquals("Rectangles found:\nC 1, 1, 1, 1\nC 1, 1, 1, 1\nC " + "1, 1, 1, 1\nC 1, 1, 1, 1\n",
+                systemOut().getHistory());
 
     }
 
