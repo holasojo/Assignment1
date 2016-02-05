@@ -181,9 +181,9 @@ public class Container {
      *            is rectangle name
      * @return true if the rectangle is found.
      */
-    public boolean search(String name) {
+    public void search(String name) {
 
-        return list.search(name) != null;
+        list.search(name);
 
     }
 

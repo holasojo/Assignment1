@@ -108,7 +108,7 @@ class SkipList<K extends Comparable<K>, E> {
      * 
      * @return True if it gets inserted, false otherwise.
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({ "unchecked" })
     public boolean insert(KVPair<K, E> it) {
         // random level for the new node
         int newLevel = randomLevel();

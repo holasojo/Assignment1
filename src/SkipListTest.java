@@ -40,6 +40,35 @@ public class SkipListTest extends student.TestCase {
     }
 
     /**
+     * testing search
+     */
+    public void testSearch() {
+        list = con2.getList();
+        assertNotNull(list);
+        con2.search("A");
+        assertFuzzyEquals("Rectangle not found: A\n", systemOut()
+                .getHistory());
+        con2.insert("A", 0, 0, 1, 1);
+        assertEquals(1, list.size());
+        con2.insert("B", 0, 0, 1024, 1024);
+        assertEquals(2, list.size());
+        con2.insert("C", 1, 1, 1, 1);
+        assertEquals(3, list.size());
+        con2.insert("E", 1023, 1023, 1, 1);
+        assertEquals(4, list.size());
+        con2.insert("E", 0, 1023, 1, 1);
+        assertEquals(5, list.size());
+        con2.insert("E", 1023, 0, 1, 1);
+        assertEquals(6, list.size());
+        con2.insert("C", 1, 1, 1, 1);
+        con2.insert("C", 1, 1, 1, 1);
+        con2.insert("C", 1, 1, 1, 1);
+
+        
+
+    }
+
+    /**
      * testing removing with x,y,w,h
      */
     public void testRemoveByRegion() {
@@ -132,33 +161,6 @@ public class SkipListTest extends student.TestCase {
     }
 
     /**
-     * testing search
-     */
-    public void testSearch() {
-        list = con2.getList();
-        assertNotNull(list);
-        con2.insert("A", 0, 0, 1, 1);
-        assertEquals(1, list.size());
-        con2.insert("B", 0, 0, 1024, 1024);
-        assertEquals(2, list.size());
-        con2.insert("C", 1, 1, 1, 1);
-        assertEquals(3, list.size());
-        con2.insert("E", 1023, 1023, 1, 1);
-        assertEquals(4, list.size());
-        con2.insert("E", 0, 1023, 1, 1);
-        assertEquals(5, list.size());
-        con2.insert("E", 1023, 0, 1, 1);
-        assertEquals(6, list.size());
-        con2.insert("C", 1, 1, 1, 1);
-        con2.insert("C", 1, 1, 1, 1);
-        con2.insert("C", 1, 1, 1, 1);
-
-        assertTrue(con2.search("C"));
-        assertFalse(con2.search("D"));
-
-    }
-
-    /**
      * testing remove
      */
     public void testRemove() {
@@ -175,7 +177,6 @@ public class SkipListTest extends student.TestCase {
         con3.remove("C"); // trying to remove when it's not there.
         assertEquals(4, list.size());
         list.dump();
-        assertTrue(con3.search("E"));
         con3.remove("B");
         con3.remove("D");
         list.dump();
