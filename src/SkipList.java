@@ -103,8 +103,8 @@ class SkipList<K extends Comparable<K>, E> {
     /**
      * Methods to insert a KVPair into the skiplist.
      * 
-     * @param The
-     *            kvpair ot be inserted
+     * @param it
+     *            kvpair to be inserted
      * 
      * @return True if it gets inserted, false otherwise.
      */
