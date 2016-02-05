@@ -8,6 +8,8 @@
  */
 public class CommandProcessor {
 
+    // Stores all the info from the line.
+    // command and name and x,y,w,h if available.
     private String[] line;
     private Container c;
     private String com;
