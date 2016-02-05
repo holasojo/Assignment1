@@ -179,7 +179,7 @@ public class Container {
      * 
      * @param name
      *            is rectangle name
-     * @return true if the rectangle is found.
+     * 
      */
     public void search(String name) {
 
