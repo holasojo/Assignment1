@@ -8,8 +8,11 @@
  *
  */
 public class RectangleValue {
+    
+    // position of rectangle
     private int posX;
     private int posY;
+    //size of rectangle
     private int width;
     private int height;
 
