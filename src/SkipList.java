@@ -332,9 +332,11 @@ class SkipList<K extends Comparable<K>, E> {
 
         int numIntersections = 0;
 
+        //outerNode is 
         SkipNode outerNode = head;
         SkipNode innerNode = head;
 
+        //value of outerNode and innerNode
         RectangleValue outerVal;
         RectangleValue innerVal;
 
