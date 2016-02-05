@@ -46,6 +46,7 @@ public class SkipListTest extends student.TestCase {
     public void testSearch() {
         list = con2.getList();
         assertNotNull(list);
+        con2.search(null);
         con2.search("A");
         assertFuzzyEquals("Rectangle not found: A\n", systemOut()
                 .getHistory());
