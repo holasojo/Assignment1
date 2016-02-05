@@ -41,11 +41,10 @@ public class CommandProcessor {
      */
     public void process() {
         com = line[0]; // command
-        String name = line[1]; // name of the rectangle. Only gets passed in for
-                               // insert, removeByName, and searchByName
+     
         if (com.equals("insert")) {
             regions = convertValues(line);
-            insertRectangle(name, regions);
+            insertRectangle(line[1], regions);
         }
         else if (com.equals("regionsearch")) {
             regions = convertValues(line);
@@ -56,7 +55,7 @@ public class CommandProcessor {
             // if there the length of array is 2, there are only command and the
             // name of rectangle
             if (line.length == 2) {
-                removeByName(name);
+                removeByName(line[1]);
             }
             else {
                 // length of array is not 2. Most likely going to be just 4.
@@ -72,7 +71,7 @@ public class CommandProcessor {
             dump();
         }
         else if (com.equals("search")) {
-            searchByName(name);
+            searchByName(line[1]);
         }
     }
 
