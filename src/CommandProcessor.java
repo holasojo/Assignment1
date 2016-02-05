@@ -11,8 +11,11 @@ public class CommandProcessor {
     // Stores all the info from the line.
     // command and name and x,y,w,h if available.
     private String[] line;
+    // container class
     private Container c;
+    // command string
     private String com;
+    // converted position and size of rectangle
     private int[] regions;
 
     /**
@@ -41,7 +44,7 @@ public class CommandProcessor {
      */
     public void process() {
         com = line[0]; // command
-     
+
         if (com.equals("insert")) {
             regions = convertValues(line);
             insertRectangle(line[1], regions);
@@ -77,15 +80,20 @@ public class CommandProcessor {
 
     /**
      * converts String to Integer.
+     * 
+     * @param str
+     *            is x,y,w,h value in string type
+     * @return an integer array with converted x, y, w, h values.
      */
     private int[] convertValues(String[] str) {
         int[] arr = new int[4];
 
         int i = 0;
+        // moving one more position up if the command is insert
         if (com.equals("insert")) {
             i++;
         }
-
+        // converting to int
         arr[0] = Integer.parseInt(str[1 + i]);
         arr[1] = Integer.parseInt(str[2 + i]);
         arr[2] = Integer.parseInt(str[3 + i]);
@@ -99,6 +107,11 @@ public class CommandProcessor {
      * gets called when the command line is insert name x y w h
      * 
      * calls the insert method in Container class.
+     * 
+     * @param name
+     *            is the name of rectangle
+     * @param recSize
+     *            is the size and position of rectangle
      */
 
     private void insertRectangle(String name, int[] recSize) {
@@ -112,6 +125,9 @@ public class CommandProcessor {
      * gets called when the command line is remove name
      * 
      * calls the remove method in Container class.
+     * 
+     * @param name
+     *            is the name of rectangle
      */
     private void removeByName(String name) {
 
@@ -123,6 +139,9 @@ public class CommandProcessor {
      * gets called when the command line is remove x y w h
      * 
      * calls the remove method in Container class.
+     * 
+     * @param recSize
+     *            is the position and size of rectangle
      */
     private void removeByCoor(int[] recSize) {
         c.remove(recSize[0], recSize[1], recSize[2], recSize[3]);
@@ -132,6 +151,9 @@ public class CommandProcessor {
      * gets called when the command line is regionseaerch
      * 
      * calls the regionSearch method in Container class.
+     * 
+     * @param recSize
+     *            is position and size of rectangle
      */
     private void regionSearch(int[] recSize) {
         c.regionSearch(recSize[0], recSize[1], recSize[2], recSize[3]);
@@ -161,6 +183,9 @@ public class CommandProcessor {
      * gets called when the command line is search name
      * 
      * calls the search(String) method in Container class.
+     * 
+     * @param name
+     *            is the name of rectangle
      */
     private void searchByName(String name) {
         c.search(name);
