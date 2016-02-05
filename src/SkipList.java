@@ -332,9 +332,10 @@ class SkipList<K extends Comparable<K>, E> {
 
         int numIntersections = 0;
 
-        //the one we 
+        //the one we want to see if any other rectangles are intersecting with
+        //this outerNode
         SkipNode outerNode = head;
-        //node that we traverse through the list.
+        //node that we traverse through the list. 
         SkipNode innerNode = head;
 
         //value of outerNode and innerNode
