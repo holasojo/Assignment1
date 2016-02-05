@@ -69,6 +69,10 @@ public class SkipListTest extends student.TestCase {
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
         con2.insert("C", 1, 1, 1, 1);
+        systemOut().clearHistory();
+        con2.search("C");
+        assertFuzzyEquals("Rectangles found:\nC 1, 1, 1, 1\n", systemOut()
+                .getHistory());
 
         
 
