@@ -1,5 +1,6 @@
 /**
- * KVPair class
+ * KVPair class. 
+ * Will store String and RectangleValue for this project.
  * 
  * @author SOJO
  * @author sshumway
