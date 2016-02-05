@@ -332,23 +332,29 @@ class SkipList<K extends Comparable<K>, E> {
 
         int numIntersections = 0;
 
-        //outerNode is 
+        //the one we 
         SkipNode outerNode = head;
+        //node that we traverse through the list.
         SkipNode innerNode = head;
 
         //value of outerNode and innerNode
         RectangleValue outerVal;
         RectangleValue innerVal;
 
+        //starting from the first node
         for (int i = 0; i < size; i++) {
+            // move forward to start a comparison
             outerNode = outerNode.forward[0];
             outerVal = (RectangleValue) outerNode.data.value();
 
+            //traversing the list
             for (int j = 0; j < size; j++) {
                 innerNode = innerNode.forward[0];
                 innerVal = (RectangleValue) innerNode.data.value();
-
+                // check if the two rectangles are identical
+                // at the same location.
                 if (i != j) {
+                    //print out if they intersect
                     if (outerVal.intersect(innerVal)) {
                         System.out.println("(" + outerNode.data.toString() 
                             + " | " + innerNode.data.toString() + ")");
@@ -356,6 +362,7 @@ class SkipList<K extends Comparable<K>, E> {
                     }
                 }
             }
+            //resetting the innerNode to start traversing from the head
             innerNode = head;
         }
         return numIntersections;
