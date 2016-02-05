@@ -13,8 +13,10 @@
  */
 public class KVPair<K extends Comparable<K>, E> implements
         Comparable<KVPair<K, E>> {
-
+    
+    //key, String
     private K theKey;
+    //value, RectangleValue
     private E theVal;
 
     /**
