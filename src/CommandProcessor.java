@@ -11,6 +11,7 @@ public class CommandProcessor {
     private String[] line;
     private Container c;
     private String com;
+    private int[] regions;
     private int x;
     private int y;
     private int w;
@@ -33,6 +34,7 @@ public class CommandProcessor {
      */
     public void setUp(String[] cline) {
         this.line = cline;
+        
     }
 
     /**
@@ -43,12 +45,15 @@ public class CommandProcessor {
         com = line[0]; // command
 
         if (com.equals("insert")) {
-            insertRectangle();
+            regions = 
+            insertRectangle(name, regions);
         }
         else if (com.equals("regionsearch")) {
-            regionSearch();
+            regions = 
+            regionSearch(regions);
         }
         else if (com.equals("remove")) {
+            // 2 Cases for remove command.
             // if there the length of array is 2, there are only command and the
             // name of rectangle
             if (line.length == 2) {
@@ -57,7 +62,8 @@ public class CommandProcessor {
             else {
                 //length of array is not 2. Most likely going to be just 4.
                 //Meaning that it will be regions/coordinates.
-                removeByCoor();
+                regions = 
+                removeByCoor(regions);
             }
         }
         else if (com.equals("intersections")) {
@@ -74,15 +80,20 @@ public class CommandProcessor {
     /**
      * converts String to Integer.
      */
-    private void convertValues() {
+    private int[] convertValues() {
+        int[] arr = new int[4];
+        
         int i = 0;
         if (com.equals("insert")) {
             i++;
         }
-        x = Integer.parseInt(line[1 + i]);
-        y = Integer.parseInt(line[2 + i]);
-        w = Integer.parseInt(line[3 + i]);
-        h = Integer.parseInt(line[4 + i]);
+        
+        arr[0] = Integer.parseInt(line[1 + i]);
+        arr[1] = Integer.parseInt(line[2 + i]);
+        arr[2] = Integer.parseInt(line[3 + i]);
+        arr[3] = Integer.parseInt(line[4 + i]);
+        
+        return arr;
 
     }
 
